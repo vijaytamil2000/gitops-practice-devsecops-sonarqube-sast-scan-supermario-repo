@@ -30,8 +30,8 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
       - name: Build and Push Docker Image
         run: |
-          docker build -t docker.io/veereshonce/supermario:${{ env.VERSION }} .
-          docker push docker.io/veereshonce/supermario:${{ env.VERSION }}
+          docker build -t docker.io/veereshonce/supermario:3 .
+          docker push docker.io/veereshonce/supermario:3
 
   run_container_image_scan_on_super_mario_image:
     runs-on: ubuntu-latest
@@ -43,8 +43,8 @@ jobs:
         
       - name: Get Docker Image from Docker Hub
         run: |
-          docker pull docker.io/veereshonce/supermario:${{ env.VERSION }}
-          docker save -o supermariolatestdockerimage.tar docker.io/veereshonce/supermario:${{ env.VERSION }}
+          docker pull docker.io/veereshonce/supermario:3
+          docker save -o supermariolatestdockerimage.tar docker.io/veereshonce/supermario:3
 
       - name: Run Trivy vulnerability scanner in tarball mode
         uses: aquasecurity/trivy-action@master
@@ -66,7 +66,7 @@ jobs:
       - name: Update Deployment YAML
         run: |
           git pull
-          sed -i "s|image: veereshonce/supermario:.*$|image: veereshonce/supermario:${{ env.VERSION }}|" deployment.yaml
+          sed -i "s|image: veereshonce/supermario:.*$|image: veereshonce/supermario:3|" deployment.yaml
           echo ${{ env.VERSION }} > version.txt
           CURRENT_VERSION=$(cat version.txt)
           git add deployment.yaml version.txt
