@@ -23,6 +23,7 @@ jobs:
 
   build_supermario_docker_image:
     runs-on: ubuntu-latest
+    needs: sonarqube_scan
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
@@ -35,6 +36,7 @@ jobs:
 
   run_container_image_scan_on_super_mario_image:
     runs-on: ubuntu-latest
+    needs: build_supermario_docker_image
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
