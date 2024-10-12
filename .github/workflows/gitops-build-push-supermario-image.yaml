@@ -19,5 +19,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: | 
-          docker build -t docker.io/veereshonce/supermario: $VERSION .
-          docker push docker.io/veereshonce/supermario: $VERSION
+          docker build -t docker.io/veereshonce/supermario:"${{ env.VERSION }}" .
+          docker push docker.io/veereshonce/supermario:"${{ env.VERSION }}"
