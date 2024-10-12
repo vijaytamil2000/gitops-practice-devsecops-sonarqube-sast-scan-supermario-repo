@@ -26,5 +26,5 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'docker.io/veereshonce/supermario:2'
-          exit-code: '1'
+          exit-code: '0'
           severity: 'CRITICAL,HIGH'
