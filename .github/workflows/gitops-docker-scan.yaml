@@ -1,9 +1,9 @@
 name: "Scan Docker image from docker hub"
 
-on:
-  push:
-    branches:
-      - main
+#on:
+#  push:
+#    branches:
+#      - main
 
 env:
   VERSION: $(( $(cat version.txt) + 1 ))
