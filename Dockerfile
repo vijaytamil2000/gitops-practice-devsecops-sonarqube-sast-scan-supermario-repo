@@ -8,6 +8,6 @@ COPY webapp/ /usr/local/tomcat/webapps/ROOT/
 
 RUN ln -sf /bin/bash /bin/sh
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD ["catalina.sh","run"]
