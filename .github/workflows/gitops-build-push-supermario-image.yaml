@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  VERSION: $(($(cat version.txt) +1 ))
+  VERSION: $(( $(cat version.txt) + 1 ))
 
 jobs:
   build_push_supermicro_docker_image:
@@ -20,4 +20,4 @@ jobs:
       - name: Build and Push Docker Image
         run: | 
           docker build -t docker.io/veereshonce/supermario: ${{ env.VERSION }} .
-          docker push docker.io/veereshonce/supermario:${{ env.VERSION }}
+          docker push docker.io/veereshonce/supermario: ${{ env.VERSION }}
