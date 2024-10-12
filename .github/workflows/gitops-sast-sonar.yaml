@@ -1,9 +1,9 @@
 name: "Run SAST Scan on superMario Game Project"
 
-#on:
+######on:
 #  push:
 #    branches:
-#      - main
+##      - main
 
 jobs:
   sonarqube_sast_scan:

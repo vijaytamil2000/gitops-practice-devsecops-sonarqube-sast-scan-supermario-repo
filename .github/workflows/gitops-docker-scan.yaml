@@ -19,8 +19,8 @@ jobs:
 
       - name: Get Docker Image
         run: | 
-          docker pull docker.io/veereshonce/supermario:${{ env.VERSION }}
-          docker save -o supermariolatestdockerimage.tar docker.io/veereshonce/supermario:${{ env.VERSION }}
+          docker pull docker.io/veereshonce/supermario:2
+          docker save -o supermariolatestdockerimage.tar docker.io/veereshonce/supermario:2
 
       - name: Run Trivy Vulnerability scanner in tarball mode
         uses: aquasecurity/trivy-action@master
